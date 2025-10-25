@@ -1,6 +1,6 @@
 /* ===================================
-   CYBERGUARDIAN HUB - COMPLETE CSS
-   Futuristic Cybersecurity Theme
+   CYBERGUARDIAN HUB - ENHANCED CSS
+   With Section Titles & Active Nav
    =================================== */
 
 /* Reset & Base Styles */
@@ -10,7 +10,7 @@
     box-sizing: border-box;
 }
 
-/* CSS Variables for Theme Colors */
+/* CSS Variables */
 :root {
     --neon-blue: #00f3ff;
     --neon-green: #39ff14;
@@ -23,7 +23,7 @@
     --glass-bg: rgba(255, 255, 255, 0.05);
 }
 
-/* Body Styling */
+/* Body */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: var(--dark-bg);
@@ -33,7 +33,7 @@ body {
     line-height: 1.6;
 }
 
-/* Matrix Background Canvas */
+/* Matrix Background */
 #matrix-bg {
     position: fixed;
     top: 0;
@@ -45,7 +45,7 @@ body {
     pointer-events: none;
 }
 
-/* Navigation Bar */
+/* Navigation */
 nav {
     position: fixed;
     top: 0;
@@ -68,7 +68,7 @@ nav {
     gap: 1rem;
 }
 
-/* Logo Styling */
+/* Logo */
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
@@ -102,269 +102,6 @@ nav {
     color: var(--neon-blue);
     text-decoration: none;
     padding: 0.5rem 1rem;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-links a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.nav-links a:hover::before {
-    left: 100%;
-}
-
-.nav-links a:hover {
-    border-color: var(--neon-blue);
-    box-shadow: 0 0 15px var(--neon-blue);
-    transform: translateY(-2px);
-}
-
-/* Main Container */
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 6rem 2rem 2rem;
-}
-
-/* Section Styling */
-section {
-    min-height: 100vh;
-    padding: 3rem 0;
-    display: none;
-}
-
-section.active {
-    display: block;
-    animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from { 
-        opacity: 0; 
-        transform: translateY(20px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
-}
-
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 4rem 0;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(45deg, var(--neon-blue), var(--neon-green), var(--neon-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: slideDown 1s ease-out;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-@keyframes slideDown {
-    from { 
-        opacity: 0; 
-        transform: translateY(-50px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
-}
-
-.hero p {
-    font-size: 1.3rem;
-    color: var(--neon-blue);
-    margin-bottom: 2rem;
-    animation: slideUp 1s ease-out;
-}
-
-@keyframes slideUp {
-    from { 
-        opacity: 0; 
-        transform: translateY(50px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
-}
-
-/* CTA Button */
-.cta-button {
-    display: inline-block;
-    padding: 1rem 3rem;
-    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
-    color: #fff;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    margin: 0.5rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.cta-button:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.cta-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px var(--neon-blue), 0 0 60px var(--neon-purple);
-}
-
-.cta-button:active {
-    transform: scale(0.98);
-}
-
-/* Card Styling */
-.card {
-    background: var(--card-bg);
-    border: 1px solid var(--neon-blue);
-    border-radius: 15px;
-    padding: 2rem;
-    margin: 1rem 0;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(0, 243, 255, 0.1), transparent);
-    transform: rotate(45deg);
-    transition: all 0.5s;
-}
-
-.card:hover::before {
-    left: 100%;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(0, 243, 255, 0.3);
-    border-color: var(--neon-purple);
-}
-
-.card h3 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.card p {
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.8;
-}
-
-/* Grid Layout */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-/* Headings */
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--neon-green);
-    text-align: center;
-    text-shadow: 0 0 20px var(--neon-green);
-}
-
-h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-
-/* Form Elements */
-input, textarea, select {
-    width: 100%;
-    padding: 1rem;
-    margin: 0.5rem 0;
-    background: var(--glass-bg);
-    border: 1px solid var(--neon-blue);
-    border-radius: 8px;
-    color: #fff;
-    font-size: 1rem;
-    transition: all 0.3s;
-}
-
-input:focus, textarea:focus, select:focus {
-    outline: none;
-    box-shadow: 0 0 15px var(--neon-blue);
-    border-color: var(--neon-purple);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-input::placeholder, textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-/* Checkbox Styling */
-input[type="checkbox"] {
-    width: auto;
-    margin-right: 0.5rem;
-    cursor: pointer;
-    accent-color: var(--neon-blue);
-}
-
-/* Number Input */
-input[type="number"] {
-    width: 100px;
-}
-
-/* Progress Bar */
-.progress-bar {
-    width: 100%;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    overflow: hidden;
-    margin: 1rem 0;
     border: 1px solid rgba(0, 243, 255, 0.3);
 }
 
@@ -521,7 +258,7 @@ input[type="number"] {
     75% { transform: translateX(10px); }
 }
 
-/* Story Choice Buttons */
+/* Story Choice */
 .story-choice {
     display: inline-block;
     margin: 1rem 1rem 0 0;
@@ -570,7 +307,7 @@ input[type="number"] {
     font-size: 0.85rem;
 }
 
-/* Leaderboard Entry */
+/* Leaderboard */
 .leaderboard-entry {
     display: flex;
     justify-content: space-between;
@@ -716,7 +453,7 @@ code {
         padding: 5rem 1.5rem 1.5rem;
     }
     
-    .hero h1 {
+    .hero h1, .section-title {
         font-size: 3rem;
     }
     
@@ -753,11 +490,12 @@ code {
         padding: 5rem 1rem 1rem;
     }
     
-    .hero h1 {
+    .hero h1, .section-title {
         font-size: 2.5rem;
+        letter-spacing: 2px;
     }
     
-    .hero p {
+    .hero p, .section-subtitle {
         font-size: 1rem;
     }
     
@@ -790,7 +528,7 @@ code {
 }
 
 @media (max-width: 480px) {
-    .hero h1 {
+    .hero h1, .section-title {
         font-size: 2rem;
     }
     
@@ -875,4 +613,358 @@ code {
         border: 1px solid #000;
         page-break-inside: avoid;
     }
+}1px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
 }
+
+/* Active Navigation Link */
+.nav-links a.active {
+    border-color: var(--neon-green);
+    background: rgba(57, 255, 20, 0.1);
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+    color: var(--neon-green);
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.nav-links a:hover::before {
+    left: 100%;
+}
+
+.nav-links a:hover {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue);
+    transform: translateY(-2px);
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 6rem 2rem 2rem;
+}
+
+/* Section Styling */
+section {
+    min-height: 100vh;
+    padding: 3rem 0;
+    display: none;
+}
+
+section.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* SECTION TITLE - Main Feature */
+.section-title {
+    font-size: 4rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-green), var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+    animation: titleSlideIn 0.8s ease-out;
+    text-shadow: 0 0 40px rgba(0, 243, 255, 0.6),
+                 0 0 80px rgba(57, 255, 20, 0.4),
+                 0 0 120px rgba(188, 19, 254, 0.3);
+    filter: drop-shadow(0 0 20px var(--neon-blue));
+}
+
+@keyframes titleSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Glowing line under section title */
+.section-title::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--neon-blue), var(--neon-purple), transparent);
+    box-shadow: 0 0 20px var(--neon-blue);
+    animation: lineGlow 2s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+    0%, 100% { 
+        opacity: 0.5; 
+        width: 200px; 
+    }
+    50% { 
+        opacity: 1; 
+        width: 300px; 
+    }
+}
+
+/* Section Subtitle */
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--neon-blue);
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-green), var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: slideDown 1s ease-out;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+@keyframes slideDown {
+    from { 
+        opacity: 0; 
+        transform: translateY(-50px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: var(--neon-blue);
+    margin-bottom: 2rem;
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(50px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--neon-blue), 0 0 60px var(--neon-purple);
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+/* Card with Scroll Animation */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--neon-blue);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 1rem 0;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: cardFadeIn 0.6s ease-out forwards;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered animation for cards */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s;
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 243, 255, 0.3);
+    border-color: var(--neon-purple);
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Form Elements */
+input, textarea, select {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background: var(--glass-bg);
+    border: 1px solid var(--neon-blue);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 15px var(--neon-blue);
+    border-color: var(--neon-purple);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    accent-color: var(--neon-blue);
+}
+
+input[type="number"] {
+    width: 100px;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 1rem 0;
+    border:

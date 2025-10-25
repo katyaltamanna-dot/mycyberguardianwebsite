@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberGuardian Hub - Enter The Digital Realm</title>
@@ -13,7 +14,7 @@
         <div class="nav-container">
             <div class="logo">⚡ CyberGuardian</div>
             <div class="nav-links">
-                <a href="#" data-section="home">Home</a>
+                <a href="#" data-section="home" class="active">Home</a>
                 <a href="#" data-section="hackquest">HackQuest</a>
                 <a href="#" data-section="academy">Academy</a>
                 <a href="#" data-section="phishing">Phish Check</a>
@@ -59,7 +60,9 @@
 
         <!-- HACKQUEST SECTION -->
         <section id="hackquest">
-            <h2>🎯 HackQuest - Capture The Flag</h2>
+            <h1 class="section-title">🎯 HackQuest</h1>
+            <p class="section-subtitle">Capture The Flag Challenges - Test Your Skills</p>
+            
             <div class="score-board">
                 <div>Your Score: <span id="quest-score">0</span> Points</div>
             </div>
@@ -98,7 +101,8 @@
 
         <!-- ACADEMY SECTION -->
         <section id="academy">
-            <h2>🎓 CyberVerse Academy</h2>
+            <h1 class="section-title">🎓 CyberVerse Academy</h1>
+            <p class="section-subtitle">Learn Cybersecurity Fundamentals & Take Quizzes</p>
             
             <div class="grid">
                 <div class="card">
@@ -129,7 +133,9 @@
 
         <!-- PHISHING CHECKER -->
         <section id="phishing">
-            <h2>🎣 Phish or Legit?</h2>
+            <h1 class="section-title">🎣 Phish Check</h1>
+            <p class="section-subtitle">Analyze Suspicious Links & Emails for Threats</p>
+            
             <div class="card">
                 <h3>Suspicious Link/Email Analyzer</h3>
                 <p>Paste a URL or email text below to check for phishing indicators:</p>
@@ -141,7 +147,9 @@
 
         <!-- PASSWORD GURU -->
         <section id="password">
-            <h2>🔐 Password Guru</h2>
+            <h1 class="section-title">🔐 Password Guru</h1>
+            <p class="section-subtitle">Test Password Strength & Generate Secure Passwords</p>
+            
             <div class="card">
                 <h3>Test Your Password Strength</h3>
                 <input type="text" id="pass-input" placeholder="Enter a password to test..." oninput="checkPassword()">
@@ -169,7 +177,9 @@
 
         <!-- SOCIAL ENGINEERING -->
         <section id="social">
-            <h2>🎭 Hack the Socials</h2>
+            <h1 class="section-title">🎭 Social Engineering</h1>
+            <p class="section-subtitle">Learn to Recognize Social Engineering Tactics</p>
+            
             <div class="card">
                 <div id="social-story"></div>
             </div>
@@ -177,7 +187,9 @@
 
         <!-- CYBER MAP -->
         <section id="map">
-            <h2>🌍 Global CyberCrime Map</h2>
+            <h1 class="section-title">🌍 Cyber Map</h1>
+            <p class="section-subtitle">Live Global CyberCrime Activity Visualization</p>
+            
             <div class="card">
                 <p style="text-align: center; margin-bottom: 1rem;">Live Cyber Attack Simulation</p>
                 <div class="map-container" id="cyber-map">
@@ -189,7 +201,9 @@
 
         <!-- DEFENDIT -->
         <section id="defendit">
-            <h2>🛡️ DefendIT - Incident Response</h2>
+            <h1 class="section-title">🛡️ DefendIT</h1>
+            <p class="section-subtitle">Incident Response Training Simulator</p>
+            
             <div class="card">
                 <div id="defendit-scenario"></div>
             </div>
@@ -197,7 +211,8 @@
 
         <!-- TOOLS HUB -->
         <section id="tools">
-            <h2>🔧 DecodeX - Security Tools</h2>
+            <h1 class="section-title">🔧 DecodeX Tools</h1>
+            <p class="section-subtitle">Essential Security & Encryption Tools</p>
             
             <div class="grid">
                 <div class="card">
@@ -241,13 +256,17 @@
 
         <!-- NEWS SECTION -->
         <section id="news">
-            <h2>📰 Guardians of the Net</h2>
+            <h1 class="section-title">📰 Guardians of the Net</h1>
+            <p class="section-subtitle">Latest Cybersecurity News & Updates</p>
+            
             <div id="news-feed"></div>
         </section>
 
         <!-- CYBERSCAPE STORY -->
         <section id="story">
-            <h2>🎬 CyberScape Story Mode</h2>
+            <h1 class="section-title">🎬 CyberScape Story</h1>
+            <p class="section-subtitle">Interactive Cybersecurity Adventure Game</p>
+            
             <div class="card">
                 <div id="story-content"></div>
             </div>
@@ -262,5 +281,6 @@
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>

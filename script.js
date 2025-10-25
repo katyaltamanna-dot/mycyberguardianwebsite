@@ -1,3 +1,8 @@
+// ===================================
+// CYBERGUARDIAN HUB - ENHANCED JS
+// With Active Nav Highlighting
+// ===================================
+
 // Matrix Rain Background
 const canvas = document.getElementById('matrix-bg');
 const ctx = canvas.getContext('2d');
@@ -27,16 +32,22 @@ function drawMatrix() {
 
 setInterval(drawMatrix, 35);
 
-// Navigation
+// User Data
 let userData = {
     score: 0,
     completed: []
 };
 
+// Navigation with Active Highlighting
 document.querySelectorAll('[data-section]').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
-        navigateTo(link.dataset.section);
+        const sectionId = link.dataset.section;
+        navigateTo(sectionId);
+        
+        // Update active state in nav
+        document.querySelectorAll('[data-section]').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
     });
 });
 
@@ -44,6 +55,15 @@ function navigateTo(sectionId) {
     document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
     document.getElementById(sectionId).classList.add('active');
     window.scrollTo(0, 0);
+    
+    // Reset card animations
+    const cards = document.getElementById(sectionId).querySelectorAll('.card');
+    cards.forEach((card, index) => {
+        card.style.animation = 'none';
+        setTimeout(() => {
+            card.style.animation = '';
+        }, 10);
+    });
 }
 
 // HackQuest Challenges
