@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuardian Hub - Enter The Digital Realm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="matrix-bg"></canvas>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="logo">⚡ CyberGuardian</div>
+            <div class="nav-links">
+                <a href="#" data-section="home">Home</a>
+                <a href="#" data-section="hackquest">HackQuest</a>
+                <a href="#" data-section="academy">Academy</a>
+                <a href="#" data-section="phishing">Phish Check</a>
+                <a href="#" data-section="password">Password Guru</a>
+                <a href="#" data-section="social">Social Eng</a>
+                <a href="#" data-section="map">Cyber Map</a>
+                <a href="#" data-section="defendit">DefendIT</a>
+                <a href="#" data-section="tools">Tools</a>
+                <a href="#" data-section="news">News</a>
+                <a href="#" data-section="story">CyberScape</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- HOME SECTION -->
+        <section id="home" class="active">
+            <div class="hero">
+                <h1>Welcome to CyberGuardian Hub</h1>
+                <p>Your Gateway to Mastering Digital Security</p>
+                <p style="font-size: 1rem; color: rgba(255,255,255,0.7); max-width: 800px; margin: 0 auto 2rem;">
+                    Dive into an immersive world where learning cybersecurity becomes an adventure. 
+                    Test your skills, solve challenges, and become a digital defender.
+                </p>
+                <button class="cta-button" onclick="navigateTo('hackquest')">Start Your Journey</button>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3 style="color: var(--neon-blue);">🎮 Interactive Challenges</h3>
+                    <p>Solve real-world cybersecurity puzzles and climb the leaderboard</p>
+                </div>
+                <div class="card">
+                    <h3 style="color: var(--neon-green);">📚 Learn & Grow</h3>
+                    <p>Master the fundamentals of digital security through engaging lessons</p>
+                </div>
+                <div class="card">
+                    <h3 style="color: var(--neon-purple);">🛠️ Practical Tools</h3>
+                    <p>Access powerful security tools for encoding, hashing, and analysis</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HACKQUEST SECTION -->
+        <section id="hackquest">
+            <h2>🎯 HackQuest - Capture The Flag</h2>
+            <div class="score-board">
+                <div>Your Score: <span id="quest-score">0</span> Points</div>
+            </div>
+
+            <div class="grid">
+                <div class="card challenge-btn" onclick="startChallenge('decode')">
+                    <h3 style="color: var(--neon-blue);">Challenge 1: Base64 Decoder</h3>
+                    <p>Decode the secret message: <code style="color: var(--neon-green);">Q3liZXJHdWFyZGlhbg==</code></p>
+                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">Difficulty: Easy | Points: 10</p>
+                </div>
+
+                <div class="card challenge-btn" onclick="startChallenge('cipher')">
+                    <h3 style="color: var(--neon-blue);">Challenge 2: Caesar Cipher</h3>
+                    <p>Decrypt: <code style="color: var(--neon-green);">VHFXULWB</code> (Shift: 3)</p>
+                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">Difficulty: Easy | Points: 15</p>
+                </div>
+
+                <div class="card challenge-btn" onclick="startChallenge('hash')">
+                    <h3 style="color: var(--neon-blue);">Challenge 3: Hash Cracker</h3>
+                    <p>Find the password: <code style="color: var(--neon-green);">5f4dcc3b5aa765d61d8327deb882cf99</code></p>
+                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">Difficulty: Medium | Points: 25</p>
+                </div>
+
+                <div class="card challenge-btn" onclick="startChallenge('port')">
+                    <h3 style="color: var(--neon-blue);">Challenge 4: Port Scanner</h3>
+                    <p>Which port is commonly used for HTTPS?</p>
+                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">Difficulty: Easy | Points: 10</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="color: var(--neon-green);">🏆 Leaderboard</h3>
+                <div id="leaderboard"></div>
+            </div>
+        </section>
+
+        <!-- ACADEMY SECTION -->
+        <section id="academy">
+            <h2>🎓 CyberVerse Academy</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3 style="color: var(--neon-blue);">Lesson 1: Phishing Attacks</h3>
+                    <p>Phishing is a social engineering attack where attackers impersonate trusted entities to steal sensitive information. Common signs include suspicious sender addresses, urgent language, and requests for personal data.</p>
+                    <button class="cta-button" style="margin-top: 1rem;" onclick="startQuiz('phishing')">Take Quiz</button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--neon-green);">Lesson 2: Malware</h3>
+                    <p>Malware (malicious software) includes viruses, trojans, ransomware, and spyware. It can steal data, damage systems, or grant unauthorized access. Always use antivirus software and avoid suspicious downloads.</p>
+                    <button class="cta-button" style="margin-top: 1rem;" onclick="startQuiz('malware')">Take Quiz</button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--neon-purple);">Lesson 3: Ransomware</h3>
+                    <p>Ransomware encrypts your files and demands payment for decryption. Prevention includes regular backups, security updates, and employee training. Never pay the ransom as it doesn't guarantee file recovery.</p>
+                    <button class="cta-button" style="margin-top: 1rem;" onclick="startQuiz('ransomware')">Take Quiz</button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--neon-pink);">Lesson 4: Password Security</h3>
+                    <p>Strong passwords use 12+ characters with uppercase, lowercase, numbers, and symbols. Never reuse passwords across sites. Use a password manager and enable two-factor authentication wherever possible.</p>
+                    <button class="cta-button" style="margin-top: 1rem;" onclick="startQuiz('password-sec')">Take Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHISHING CHECKER -->
+        <section id="phishing">
+            <h2>🎣 Phish or Legit?</h2>
+            <div class="card">
+                <h3>Suspicious Link/Email Analyzer</h3>
+                <p>Paste a URL or email text below to check for phishing indicators:</p>
+                <textarea id="phish-input" rows="6" placeholder="Paste suspicious link or email content here..."></textarea>
+                <button class="cta-button" onclick="checkPhishing()">Analyze</button>
+                <div id="phish-result" style="margin-top: 1rem;"></div>
+            </div>
+        </section>
+
+        <!-- PASSWORD GURU -->
+        <section id="password">
+            <h2>🔐 Password Guru</h2>
+            <div class="card">
+                <h3>Test Your Password Strength</h3>
+                <input type="text" id="pass-input" placeholder="Enter a password to test..." oninput="checkPassword()">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="pass-strength" style="width: 0%;">0%</div>
+                </div>
+                <div id="pass-feedback" style="margin-top: 1rem;"></div>
+                <div id="pass-crack-time" style="margin-top: 1rem; font-size: 1.2rem; color: var(--neon-blue);"></div>
+            </div>
+
+            <div class="card">
+                <h3>Password Generator</h3>
+                <label>
+                    <input type="checkbox" id="gen-upper" checked> Uppercase
+                    <input type="checkbox" id="gen-lower" checked> Lowercase
+                    <input type="checkbox" id="gen-numbers" checked> Numbers
+                    <input type="checkbox" id="gen-symbols" checked> Symbols
+                </label>
+                <br><br>
+                <label>Length: <input type="number" id="gen-length" value="16" min="8" max="32" style="width: 80px;"></label>
+                <button class="cta-button" onclick="generatePassword()">Generate</button>
+                <div class="tool-output" id="generated-pass" style="margin-top: 1rem;"></div>
+            </div>
+        </section>
+
+        <!-- SOCIAL ENGINEERING -->
+        <section id="social">
+            <h2>🎭 Hack the Socials</h2>
+            <div class="card">
+                <div id="social-story"></div>
+            </div>
+        </section>
+
+        <!-- CYBER MAP -->
+        <section id="map">
+            <h2>🌍 Global CyberCrime Map</h2>
+            <div class="card">
+                <p style="text-align: center; margin-bottom: 1rem;">Live Cyber Attack Simulation</p>
+                <div class="map-container" id="cyber-map">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 500'%3E%3Crect fill='%230a0e27' width='1000' height='500'/%3E%3Cpath fill='%2300f3ff' opacity='0.2' d='M0 250 Q 250 200 500 250 T 1000 250 L 1000 500 L 0 500 Z'/%3E%3C/svg%3E" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div id="attack-log" style="margin-top: 1rem; max-height: 200px; overflow-y: auto;"></div>
+            </div>
+        </section>
+
+        <!-- DEFENDIT -->
+        <section id="defendit">
+            <h2>🛡️ DefendIT - Incident Response</h2>
+            <div class="card">
+                <div id="defendit-scenario"></div>
+            </div>
+        </section>
+
+        <!-- TOOLS HUB -->
+        <section id="tools">
+            <h2>🔧 DecodeX - Security Tools</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Base64 Encoder/Decoder</h3>
+                    <input type="text" id="b64-input" placeholder="Enter text...">
+                    <button class="cta-button" onclick="encodeBase64()">Encode</button>
+                    <button class="cta-button" onclick="decodeBase64()">Decode</button>
+                    <div class="tool-output" id="b64-output"></div>
+                </div>
+
+                <div class="card">
+                    <h3>Hash Generator</h3>
+                    <input type="text" id="hash-input" placeholder="Enter text to hash...">
+                    <select id="hash-type">
+                        <option>MD5</option>
+                        <option>SHA-1</option>
+                        <option>SHA-256</option>
+                    </select>
+                    <button class="cta-button" onclick="generateHash()">Generate Hash</button>
+                    <div class="tool-output" id="hash-output"></div>
+                </div>
+
+                <div class="card">
+                    <h3>Caesar Cipher</h3>
+                    <input type="text" id="caesar-input" placeholder="Enter text...">
+                    <input type="number" id="caesar-shift" placeholder="Shift (e.g., 3)" value="3">
+                    <button class="cta-button" onclick="caesarEncrypt()">Encrypt</button>
+                    <button class="cta-button" onclick="caesarDecrypt()">Decrypt</button>
+                    <div class="tool-output" id="caesar-output"></div>
+                </div>
+
+                <div class="card">
+                    <h3>Binary Converter</h3>
+                    <input type="text" id="binary-input" placeholder="Enter text or binary...">
+                    <button class="cta-button" onclick="textToBinary()">Text → Binary</button>
+                    <button class="cta-button" onclick="binaryToText()">Binary → Text</button>
+                    <div class="tool-output" id="binary-output"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWS SECTION -->
+        <section id="news">
+            <h2>📰 Guardians of the Net</h2>
+            <div id="news-feed"></div>
+        </section>
+
+        <!-- CYBERSCAPE STORY -->
+        <section id="story">
+            <h2>🎬 CyberScape Story Mode</h2>
+            <div class="card">
+                <div id="story-content"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAL -->
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+    <div class="modal" id="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div id="modal-content"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
