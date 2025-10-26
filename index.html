@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberGuardian Hub - Enter The Digital Realm</title>
@@ -10,28 +9,28 @@
 <body>
     <canvas id="matrix-bg"></canvas>
     
-    <nav>
+    <nav id="main-nav">
         <div class="nav-container">
-            <div class="logo">⚡ CyberGuardian</div>
+            <div class="logo" onclick="navigateTo('home')">⚡ CyberGuardian</div>
             <div class="nav-links">
-                <a href="#" data-section="home" class="active">Home</a>
-                <a href="#" data-section="hackquest">HackQuest</a>
-                <a href="#" data-section="academy">Academy</a>
-                <a href="#" data-section="phishing">Phish Check</a>
-                <a href="#" data-section="password">Password Guru</a>
-                <a href="#" data-section="social">Social Eng</a>
-                <a href="#" data-section="map">Cyber Map</a>
-                <a href="#" data-section="defendit">DefendIT</a>
-                <a href="#" data-section="tools">Tools</a>
-                <a href="#" data-section="news">News</a>
-                <a href="#" data-section="story">CyberScape</a>
+                <a href="#home" data-section="home" class="nav-link active">Home</a>
+                <a href="#hackquest" data-section="hackquest" class="nav-link">HackQuest</a>
+                <a href="#academy" data-section="academy" class="nav-link">Academy</a>
+                <a href="#phishing" data-section="phishing" class="nav-link">Phish Check</a>
+                <a href="#password" data-section="password" class="nav-link">Password Guru</a>
+                <a href="#social" data-section="social" class="nav-link">Social Eng</a>
+                <a href="#map" data-section="map" class="nav-link">Cyber Map</a>
+                <a href="#defendit" data-section="defendit" class="nav-link">DefendIT</a>
+                <a href="#tools" data-section="tools" class="nav-link">Tools</a>
+                <a href="#news" data-section="news" class="nav-link">News</a>
+                <a href="#story" data-section="story" class="nav-link">CyberScape</a>
             </div>
         </div>
     </nav>
 
     <div class="container">
         <!-- HOME SECTION -->
-        <section id="home" class="active">
+        <section id="home" class="section active" data-section-name="home">
             <div class="hero">
                 <h1>Welcome to CyberGuardian Hub</h1>
                 <p>Your Gateway to Mastering Digital Security</p>
@@ -59,7 +58,7 @@
         </section>
 
         <!-- HACKQUEST SECTION -->
-        <section id="hackquest">
+        <section id="hackquest" class="section" data-section-name="hackquest">
             <h1 class="section-title">🎯 HackQuest</h1>
             <p class="section-subtitle">Capture The Flag Challenges - Test Your Skills</p>
             
@@ -100,7 +99,7 @@
         </section>
 
         <!-- ACADEMY SECTION -->
-        <section id="academy">
+        <section id="academy" class="section" data-section-name="academy">
             <h1 class="section-title">🎓 CyberVerse Academy</h1>
             <p class="section-subtitle">Learn Cybersecurity Fundamentals & Take Quizzes</p>
             
@@ -132,7 +131,7 @@
         </section>
 
         <!-- PHISHING CHECKER -->
-        <section id="phishing">
+        <section id="phishing" class="section" data-section-name="phishing">
             <h1 class="section-title">🎣 Phish Check</h1>
             <p class="section-subtitle">Analyze Suspicious Links & Emails for Threats</p>
             
@@ -146,7 +145,7 @@
         </section>
 
         <!-- PASSWORD GURU -->
-        <section id="password">
+        <section id="password" class="section" data-section-name="password">
             <h1 class="section-title">🔐 Password Guru</h1>
             <p class="section-subtitle">Test Password Strength & Generate Secure Passwords</p>
             
@@ -176,7 +175,7 @@
         </section>
 
         <!-- SOCIAL ENGINEERING -->
-        <section id="social">
+        <section id="social" class="section" data-section-name="social">
             <h1 class="section-title">🎭 Social Engineering</h1>
             <p class="section-subtitle">Learn to Recognize Social Engineering Tactics</p>
             
@@ -186,21 +185,21 @@
         </section>
 
         <!-- CYBER MAP -->
-        <section id="map">
+        <section id="map" class="section" data-section-name="map">
             <h1 class="section-title">🌍 Cyber Map</h1>
             <p class="section-subtitle">Live Global CyberCrime Activity Visualization</p>
             
             <div class="card">
                 <p style="text-align: center; margin-bottom: 1rem;">Live Cyber Attack Simulation</p>
                 <div class="map-container" id="cyber-map">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 500'%3E%3Crect fill='%230a0e27' width='1000' height='500'/%3E%3Cpath fill='%2300f3ff' opacity='0.2' d='M0 250 Q 250 200 500 250 T 1000 250 L 1000 500 L 0 500 Z'/%3E%3C/svg%3E" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 500'%3E%3Crect fill='%230a0e27' width='1000' height='500'/%3E%3Cpath fill='%2300f3ff' opacity='0.2' d='M0 250 Q 250 200 500 250 T 1000 250 L 1000 500 L 0 500 Z'/%3E%3C/svg%3E" style="width: 100%; height: 100%; object-fit: cover;" alt="Cyber Map">
                 </div>
                 <div id="attack-log" style="margin-top: 1rem; max-height: 200px; overflow-y: auto;"></div>
             </div>
         </section>
 
         <!-- DEFENDIT -->
-        <section id="defendit">
+        <section id="defendit" class="section" data-section-name="defendit">
             <h1 class="section-title">🛡️ DefendIT</h1>
             <p class="section-subtitle">Incident Response Training Simulator</p>
             
@@ -210,7 +209,7 @@
         </section>
 
         <!-- TOOLS HUB -->
-        <section id="tools">
+        <section id="tools" class="section" data-section-name="tools">
             <h1 class="section-title">🔧 DecodeX Tools</h1>
             <p class="section-subtitle">Essential Security & Encryption Tools</p>
             
@@ -255,7 +254,7 @@
         </section>
 
         <!-- NEWS SECTION -->
-        <section id="news">
+        <section id="news" class="section" data-section-name="news">
             <h1 class="section-title">📰 Guardians of the Net</h1>
             <p class="section-subtitle">Latest Cybersecurity News & Updates</p>
             
@@ -263,7 +262,7 @@
         </section>
 
         <!-- CYBERSCAPE STORY -->
-        <section id="story">
+        <section id="story" class="section" data-section-name="story">
             <h1 class="section-title">🎬 CyberScape Story</h1>
             <p class="section-subtitle">Interactive Cybersecurity Adventure Game</p>
             
@@ -281,6 +280,5 @@
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>

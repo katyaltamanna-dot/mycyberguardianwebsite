@@ -1,9 +1,9 @@
 // ===================================
-// CYBERGUARDIAN HUB - ENHANCED JS
-// With Active Nav Highlighting
+// CYBERGUARDIAN HUB - FIXED JS
+// Smooth Navigation & Performance
 // ===================================
 
-// Matrix Rain Background
+// Matrix Rain Background - Optimized
 const canvas = document.getElementById('matrix-bg');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -30,7 +30,7 @@ function drawMatrix() {
     }
 }
 
-setInterval(drawMatrix, 35);
+let matrixInterval = setInterval(drawMatrix, 35);
 
 // User Data
 let userData = {
@@ -38,32 +38,97 @@ let userData = {
     completed: []
 };
 
-// Navigation with Active Highlighting
-document.querySelectorAll('[data-section]').forEach(link => {
+// Current active section
+let currentSection = 'home';
+
+// Navigation - Fixed smooth transitions
+document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const sectionId = link.dataset.section;
         navigateTo(sectionId);
-        
-        // Update active state in nav
-        document.querySelectorAll('[data-section]').forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
     });
 });
 
+// Smooth Navigation Function
 function navigateTo(sectionId) {
-    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-    document.getElementById(sectionId).classList.add('active');
-    window.scrollTo(0, 0);
+    // Prevent navigation if already on the section
+    if (currentSection === sectionId) return;
     
-    // Reset card animations
-    const cards = document.getElementById(sectionId).querySelectorAll('.card');
-    cards.forEach((card, index) => {
-        card.style.animation = 'none';
-        setTimeout(() => {
-            card.style.animation = '';
-        }, 10);
+    // Get current and target sections
+    const currentSectionEl = document.getElementById(currentSection);
+    const targetSectionEl = document.getElementById(sectionId);
+    
+    if (!targetSectionEl) return;
+    
+    // Update nav highlighting
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.dataset.section === sectionId) {
+            link.classList.add('active');
+        }
     });
+    
+    // Fade out current section
+    if (currentSectionEl) {
+        currentSectionEl.style.opacity = '0';
+        currentSectionEl.style.transform = 'translateY(-10px)';
+        
+        setTimeout(() => {
+            currentSectionEl.classList.remove('active');
+            currentSectionEl.style.display = 'none';
+            
+            // Fade in target section
+            targetSectionEl.style.display = 'block';
+            targetSectionEl.style.opacity = '0';
+            targetSectionEl.style.transform = 'translateY(10px)';
+            
+            // Force reflow
+            targetSectionEl.offsetHeight;
+            
+            setTimeout(() => {
+                targetSectionEl.classList.add('active');
+                targetSectionEl.style.opacity = '1';
+                targetSectionEl.style.transform = 'translateY(0)';
+                
+                // Scroll to top smoothly
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Initialize section-specific content
+                initializeSection(sectionId);
+            }, 50);
+        }, 300);
+    } else {
+        // First load
+        targetSectionEl.style.display = 'block';
+        targetSectionEl.classList.add('active');
+        targetSectionEl.style.opacity = '1';
+        targetSectionEl.style.transform = 'translateY(0)';
+        initializeSection(sectionId);
+    }
+    
+    currentSection = sectionId;
+}
+
+// Initialize section-specific content
+function initializeSection(sectionId) {
+    switch(sectionId) {
+        case 'social':
+            showSocialStory();
+            break;
+        case 'defendit':
+            showDefendScenario();
+            break;
+        case 'story':
+            showStoryNode();
+            break;
+        case 'news':
+            loadNews();
+            break;
+        case 'hackquest':
+            updateLeaderboard();
+            break;
+    }
 }
 
 // HackQuest Challenges
@@ -129,6 +194,9 @@ function checkAnswer(type, correct) {
 }
 
 function updateLeaderboard() {
+    const leaderboardEl = document.getElementById('leaderboard');
+    if (!leaderboardEl) return;
+    
     const leaders = [
         { name: 'CyberNinja', score: userData.score + 100 },
         { name: 'You', score: userData.score },
@@ -137,15 +205,13 @@ function updateLeaderboard() {
         { name: 'NetDefender', score: Math.max(0, userData.score - 120) }
     ].sort((a, b) => b.score - a.score);
 
-    document.getElementById('leaderboard').innerHTML = leaders.map((l, i) => `
+    leaderboardEl.innerHTML = leaders.map((l, i) => `
         <div class="leaderboard-entry">
             <span>${i + 1}. ${l.name}</span>
             <span style="color: var(--neon-blue);">${l.score} pts</span>
         </div>
     `).join('');
 }
-
-updateLeaderboard();
 
 // Academy Quizzes
 const quizData = {
@@ -368,6 +434,9 @@ const socialStories = [
 ];
 
 function showSocialStory(index = 0) {
+    const storyEl = document.getElementById('social-story');
+    if (!storyEl) return;
+    
     let story;
     if (typeof index === 'number') {
         story = socialStories[index];
@@ -375,7 +444,7 @@ function showSocialStory(index = 0) {
         story = socialStories.find(s => s.id === index) || socialStories[0];
     }
 
-    document.getElementById('social-story').innerHTML = `
+    storyEl.innerHTML = `
         <h3>Social Engineering Scenario</h3>
         <p style="font-size: 1.1rem; margin: 2rem 0;">${story.text}</p>
         <div>
@@ -386,12 +455,19 @@ function showSocialStory(index = 0) {
     `;
 }
 
-showSocialStory();
+// Cyber Map - Optimized
+let cyberMapInterval = null;
 
-// Cyber Map
 function initCyberMap() {
     const map = document.getElementById('cyber-map');
     const log = document.getElementById('attack-log');
+    
+    if (!map || !log) return;
+    
+    // Clear existing interval if any
+    if (cyberMapInterval) {
+        clearInterval(cyberMapInterval);
+    }
     
     const attacks = [
         { name: 'DDoS Attack', type: 'DDoS', country: 'Russia' },
@@ -401,7 +477,9 @@ function initCyberMap() {
         { name: 'Malware Spread', type: 'Malware', country: 'Brazil' }
     ];
 
-    setInterval(() => {
+    cyberMapInterval = setInterval(() => {
+        if (currentSection !== 'map') return; // Only run when section is active
+        
         const attack = attacks[Math.floor(Math.random() * attacks.length)];
         const x = Math.random() * 90 + 5;
         const y = Math.random() * 80 + 10;
@@ -417,13 +495,22 @@ function initCyberMap() {
         logEntry.textContent = `[${new Date().toLocaleTimeString()}] ${attack.type} detected in ${attack.country}`;
         log.insertBefore(logEntry, log.firstChild);
 
-        setTimeout(() => dot.remove(), 2000);
+        setTimeout(() => {
+            if (dot && dot.parentNode) {
+                dot.remove();
+            }
+        }, 2000);
         
-        if (log.children.length > 10) log.lastChild.remove();
+        if (log.children.length > 10) {
+            log.removeChild(log.lastChild);
+        }
     }, 3000);
 }
 
-initCyberMap();
+// Initialize cyber map when page loads
+if (document.getElementById('cyber-map')) {
+    initCyberMap();
+}
 
 // DefendIT
 const defendScenarios = [
@@ -446,8 +533,11 @@ const defendScenarios = [
 ];
 
 function showDefendScenario(index = 0) {
+    const scenarioEl = document.getElementById('defendit-scenario');
+    if (!scenarioEl) return;
+    
     const scenario = defendScenarios[index];
-    document.getElementById('defendit-scenario').innerHTML = `
+    scenarioEl.innerHTML = `
         <h3>Incident Response</h3>
         <p style="font-size: 1.2rem; margin: 2rem 0;">${scenario.text}</p>
         ${scenario.choices.map((c, i) => `
@@ -464,12 +554,14 @@ function handleDefend(scenarioIdx, choiceIdx, correct) {
     `);
 }
 
-showDefendScenario();
-
 // Tools
 function encodeBase64() {
     const input = document.getElementById('b64-input').value;
-    document.getElementById('b64-output').textContent = btoa(input);
+    try {
+        document.getElementById('b64-output').textContent = btoa(input);
+    } catch (e) {
+        document.getElementById('b64-output').textContent = 'Error encoding text';
+    }
 }
 
 function decodeBase64() {
@@ -562,7 +654,10 @@ const newsItems = [
 ];
 
 function loadNews() {
-    document.getElementById('news-feed').innerHTML = newsItems.map(item => `
+    const newsFeedEl = document.getElementById('news-feed');
+    if (!newsFeedEl) return;
+    
+    newsFeedEl.innerHTML = newsItems.map(item => `
         <div class="news-item">
             <h3>${item.title}</h3>
             <p>${item.content}</p>
@@ -570,8 +665,6 @@ function loadNews() {
         </div>
     `).join('');
 }
-
-loadNews();
 
 // CyberScape Story
 const storyNodes = {
@@ -614,8 +707,11 @@ const storyNodes = {
 };
 
 function showStoryNode(nodeId = 'start') {
+    const storyEl = document.getElementById('story-content');
+    if (!storyEl) return;
+    
     const node = storyNodes[nodeId];
-    document.getElementById('story-content').innerHTML = `
+    storyEl.innerHTML = `
         <h3>CyberScape Mission</h3>
         <p style="font-size: 1.1rem; margin: 2rem 0; line-height: 1.8;">${node.text}</p>
         <div>
@@ -626,22 +722,45 @@ function showStoryNode(nodeId = 'start') {
     `;
 }
 
-showStoryNode();
-
 // Modal Functions
 function showModal(content) {
-    document.getElementById('modal-content').innerHTML = content;
-    document.getElementById('modal').classList.add('active');
-    document.getElementById('overlay').classList.add('active');
+    const modal = document.getElementById('modal');
+    const overlay = document.getElementById('overlay');
+    const modalContent = document.getElementById('modal-content');
+    
+    modalContent.innerHTML = content;
+    modal.classList.add('active');
+    overlay.classList.add('active');
 }
 
 function closeModal() {
-    document.getElementById('modal').classList.remove('active');
-    document.getElementById('overlay').classList.remove('active');
+    const modal = document.getElementById('modal');
+    const overlay = document.getElementById('overlay');
+    
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
 }
 
-// Responsive canvas resize
+// Responsive canvas resize - Debounced
+let resizeTimeout;
 window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }, 250);
+});
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', () => {
+    if (matrixInterval) clearInterval(matrixInterval);
+    if (cyberMapInterval) clearInterval(cyberMapInterval);
+});
+
+// Initialize on load
+window.addEventListener('DOMContentLoaded', () => {
+    // Initialize the home section
+    initializeSection('home');
+    
+    console.log('🔒 CyberGuardian Hub loaded successfully!');
 });
